@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>株式会社 和光産業｜WA-KOU 企業サイト</title>
+  <!-- 日本の企業サイトを模したデザイン。信頼・堅実・和の気品 -->
+  <style>
+    /* ----- リセット & 基本 ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Hiragino Sans', 'Yu Gothic', 'Helvetica Neue', 'Arial', sans-serif;
+      background-color: #f9f7f4;
+      color: #2c2a27;
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.25s ease;
+    }
+
+    a:hover {
+      opacity: 0.7;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ----- ヘッダー（企業ロゴ＋ナビ） ----- */
+    .header {
+      padding: 24px 0 18px;
+      border-bottom: 2px solid #dad3c9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      font-family: 'Hiragino Mincho Pro', 'Times New Roman', serif;
+      color: #2e3b3a;
+    }
+
+    .logo-sub {
+      font-size: 0.85rem;
+      color: #6b6962;
+      letter-spacing: 0.2em;
+      font-weight: 300;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2.2rem;
+      font-size: 0.95rem;
+      font-weight: 450;
+      color: #3b3a36;
+    }
+
+    .nav a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: #9f9a90;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* ----- ヒーロー（企業理念） ----- */
+    .hero {
+      margin: 40px 0 48px;
+      background: linear-gradient(135deg, #eae5dd 0%, #d6cec2 100%);
+      border-radius: 40px;
+      padding: 56px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200"><circle cx="40" cy="40" r="18" fill="%23b8ad9b" opacity="0.15"/><circle cx="160" cy="120" r="30" fill="%23b8ad9b" opacity="0.10"/><circle cx="100" cy="180" r="22" fill="%23b8ad9b" opacity="0.12"/><circle cx="180" cy="30" r="14" fill="%23b8ad9b" opacity="0.08"/></svg>');
+      background-size: 200px;
+      background-blend-mode: overlay;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.03);
+    }
+
+    .hero-text {
+      flex: 1 1 280px;
+    }
+
+    .hero-text .tag {
+      display: inline-block;
+      background: rgba(255, 249, 240, 0.7);
+      backdrop-filter: blur(4px);
+      padding: 0.2rem 1.8rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      color: #3f3d37;
+      margin-bottom: 12px;
+      border: 1px solid #ccc6bb;
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 350;
+      letter-spacing: 0.08em;
+      font-family: 'Hiragino Mincho Pro', serif;
+      color: #2c2a26;
+      line-height: 1.3;
+    }
+
+    .hero-text h1 span {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: #4e4b44;
+      margin-top: 6px;
+    }
+
+    .hero-text p {
+      margin-top: 20px;
+      font-size: 1.05rem;
+      color: #3f3d37;
+      max-width: 480px;
+      background: rgba(255, 252, 245, 0.5);
+      padding: 0.4rem 1.6rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      display: inline-block;
+    }
+
+    .hero-extra {
+      flex: 0 0 auto;
+      background: rgba(255, 252, 245, 0.55);
+      backdrop-filter: blur(4px);
+      padding: 18px 28px;
+      border-radius: 60px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-extra .small {
+      font-size: 0.85rem;
+      color: #4f4b44;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-extra .number {
+      font-size: 2.4rem;
+      font-weight: 300;
+      font-family: 'Times New Roman', serif;
+      color: #2b3a38;
+      letter-spacing: 0.04em;
+    }
+
+    /* ----- セクションタイトル共通 ----- */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 350;
+      letter-spacing: 0.12em;
+      border-left: 6px solid #b3a89a;
+      padding-left: 20px;
+      margin-bottom: 12px;
+      font-family: 'Hiragino Mincho Pro', serif;
+      color: #33312d;
+    }
+
+    .section-sub {
+      font-size: 0.95rem;
+      color: #6f6a61;
+      margin-top: -8px;
+      margin-bottom: 36px;
+      padding-left: 26px;
+      letter-spacing: 0.06em;
+    }
+
+    .section-sub strong {
+      color: #4f4a40;
+      font-weight: 500;
+    }
+
+    /* ----- 企業概要（グリッド） ----- */
+    .company-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin: 30px 0 50px;
+    }
+
+    .company-card {
+      background: #ffffff;
+      border-radius: 30px;
+      padding: 30px 22px 26px;
+      border: 1px solid #eae4dc;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+      transition: all 0.2s ease;
+    }
+
+    .company-card:hover {
+      transform: translateY(-5px);
+      border-color: #cdc4b8;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.04);
+    }
+
+    .company-card .icon {
+      font-size: 2.6rem;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .company-card h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+      color: #2e3b3a;
+    }
+
+    .company-card p {
+      font-size: 0.95rem;
+      color: #5f5b53;
+    }
+
+    /* ----- 製品紹介（3カラム＋画像風） ----- */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin: 30px 0 50px;
+    }
+
+    .product-item {
+      background: #ffffff;
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid #ece6df;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+    }
+
+    .product-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.04);
+      border-color: #cbc2b6;
+    }
+
+    .product-img {
+      height: 170px;
+      background: linear-gradient(145deg, #d9d2c7, #c7bdb0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.4rem;
+      color: #4d4a41;
+      background-image: radial-gradient(circle at 20% 30%, #e8e0d6 2px, transparent 2px), 
+                        radial-gradient(circle at 80% 70%, #e8e0d6 2px, transparent 2px);
+      background-size: 40px 40px;
+    }
+
+    .product-item .info {
+      padding: 20px 22px 24px;
+    }
+
+    .product-item h4 {
+      font-size: 1.3rem;
+      font-weight: 450;
+      letter-spacing: 0.04em;
+      color: #2a3836;
+      margin-bottom: 4px;
+    }
+
+    .product-item .sub {
+      font-size: 0.85rem;
+      color: #7b756b;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    .product-item p {
+      font-size: 0.95rem;
+      color: #535049;
+    }
+
+    .product-item .price-tag {
+      display: inline-block;
+      margin-top: 14px;
+      background: #f0ebe4;
+      padding: 0.2rem 1.6rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #3a3d39;
+      font-weight: 450;
+      letter-spacing: 0.05em;
+    }
+
+    /* ----- セールス / 企業情報（二段組） ----- */
+    .flex-sales {
+      display: flex;
+      gap: 40px;
+      margin: 40px 0 50px;
+      flex-wrap: wrap;
+    }
+
+    .sales-col {
+      flex: 1 1 260px;
+      background: #f5f2ec;
+      border-radius: 32px;
+      padding: 32px 28px;
+      border: 1px solid #e3ddd4;
+    }
+
+    .sales-col h3 {
+      font-size: 1.5rem;
+      font-weight: 350;
+      border-bottom: 2px solid #d7cfc4;
+      padding-bottom: 12px;
+      margin-bottom: 22px;
+      font-family: 'Hiragino Mincho Pro', serif;
+      letter-spacing: 0.08em;
+      color: #2a3735;
+    }
+
+    .sales-col ul {
+      list-style: none;
+    }
+
+    .sales-col li {
+      padding: 10px 0 10px 28px;
+      border-bottom: 1px dashed #ddd6cc;
+      position: relative;
+      font-size: 1rem;
+      color: #3d3b36;
+    }
+
+    .sales-col li::before {
+      content: "■";
+      position: absolute;
+      left: 2px;
+      color: #a69b8d;
+      font-size: 0.9rem;
+    }
+
+    .sales-col li:last-child {
+      border-bottom: none;
+    }
+
+    .sales-highlight {
+      background: #eae5dd;
+      border-radius: 40px;
+      padding: 18px 24px;
+      margin-top: 20px;
+      font-size: 0.95rem;
+      border-left: 4px solid #a69b8d;
+    }
+
+    .sales-highlight strong {
+      color: #2a3d3a;
+    }
+
+    /* ----- 企業紹介（社名・事業内容）----- */
+    .profile-box {
+      background: #ffffff;
+      border-radius: 40px;
+      padding: 36px 40px;
+      margin: 20px 0 40px;
+      border: 1px solid #e6dfd7;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .profile-box .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px 60px;
+    }
+
+    .profile-box .col {
+      flex: 1 1 200px;
+    }
+
+    .profile-box .label {
+      font-size: 0.85rem;
+      color: #7b756b;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .profile-box .value {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #2c3a37;
+      border-bottom: 1px dotted #d5cdc2;
+      padding-bottom: 6px;
+    }
+
+    .profile-box .value small {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: #5f5b53;
+    }
+
+    /* ----- フッター ----- */
+    .footer {
+      margin-top: 50px;
+      border-top: 2px solid #dad3c9;
+      padding: 32px 0 28px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      color: #5b5750;
+      font-size: 0.9rem;
+    }
+
+    .footer a {
+      margin-left: 28px;
+    }
+
+    .footer a:first-child {
+      margin-left: 0;
+    }
+
+    /* ----- レスポンシブ ----- */
+    @media (max-width: 920px) {
+      .company-grid,
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        gap: 1.4rem;
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        padding: 36px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+      }
+
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+
+      .company-grid,
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .flex-sales {
+        flex-direction: column;
+      }
+
+      .profile-box {
+        padding: 24px 20px;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .footer a {
+        margin-left: 0;
+        margin-right: 20px;
+      }
+
+      .hero-extra {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .container {
+        padding: 0 16px;
+      }
+      .hero-text h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- ===== ヘッダー ===== -->
+  <header class="header">
+    <div class="logo-area">
+      <div class="logo">和光産業</div>
+      <div class="logo-sub">WA-KOU INDUSTRIES</div>
+    </div>
+    <nav class="nav">
+      <a href="#">企業情報</a>
+      <a href="#">製品情報</a>
+      <a href="#">文化・理念</a>
+      <a href="#">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <!-- ===== ヒーロー / 企業理念 ===== -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="tag">— 企業理念 —</div>
+      <h1>
+        和の心で、未来を紡ぐ
+        <span>— 調和と革新 —</span>
+      </h1>
+      <p>⛩️ 伝統を礎に、世界へ</p>
+    </div>
+    <div class="hero-extra">
+      <div class="small">創業以来の歩み</div>
+      <div class="number">1926 〜 2026</div>
+      <div class="small" style="margin-top: 4px;">— 百年の信頼 —</div>
+    </div>
+  </section>
+
+  <!-- ===== 企業概要（カルチャー・主要事業） ===== -->
+  <h2 class="section-title">企業文化・主要事業</h2>
+  <p class="section-sub"><strong>和光産業</strong> — 日本の美意識と最先端を融合し、暮らしと産業を支えます</p>
+
+  <div class="company-grid">
+    <div class="company-card">
+      <span class="icon">🏯</span>
+      <h3>伝統継承</h3>
+      <p>100年にわたる職人技術と精神を守り、次世代へとつなぐ。和のものづくりを核に。</p>
+    </div>
+    <div class="company-card">
+      <span class="icon">🌿</span>
+      <h3>サステナビリティ</h3>
+      <p>自然素材と循環型生産。環境に優しい製品開発で、持続可能な社会に貢献。</p>
+    </div>
+    <div class="company-card">
+      <span class="icon">⚙️</span>
+      <h3>先端技術</h3>
+      <p>伝統工法にデジタル技術を融合。高品質・高精度な製品を提供します。</p>
+    </div>
+  </div>
+
+  <!-- ===== 製品紹介 ===== -->
+  <h2 class="section-title">製品ラインナップ</h2>
+  <p class="section-sub">— 和の暮らしを彩る、こだわりの品々 —</p>
+
+  <div class="product-grid">
+    <div class="product-item">
+      <div class="product-img" style="background: #d3ccc1;">🍵</div>
+      <div class="info">
+        <h4>茶器・陶器</h4>
+        <div class="sub">WA-KOU 陶芸シリーズ</div>
+        <p>備前・信楽・九谷など、伝統技法を継承した手作り感あふれる器。</p>
+        <span class="price-tag">¥8,800 〜</span>
+      </div>
+    </div>
+    <div class="product-item">
+      <div class="product-img" style="background: #cdc2b4;">🪵</div>
+      <div class="info">
+        <h4>木工・家具</h4>
+        <div class="sub">KIGUMI シリーズ</div>
+        <p>国産木材を使用し、継ぎ手・仕上げまで丁寧に。長く愛用できる家具。</p>
+        <span class="price-tag">¥22,000 〜</span>
+      </div>
+    </div>
+    <div class="product-item">
+      <div class="product-img" style="background: #d6cdc2;">🖌️</div>
+      <div class="info">
+        <h4>和紙・文房具</h4>
+        <div class="sub">WA-PAPER コレクション</div>
+        <p>越前和紙を中心に、筆記具やステーショナリー。書く喜びを届けます。</p>
+        <span class="price-tag">¥1,200 〜</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 企業紹介（社名・主要業務・概要） ===== -->
+  <div class="profile-box">
+    <h3 style="font-weight: 350; font-family: 'Hiragino Mincho Pro', serif; letter-spacing: 0.1em; margin-bottom: 20px; color: #2b3735;">企業プロフィール</h3>
+    <div class="row">
+      <div class="col">
+        <div class="label">会社名</div>
+        <div class="value">株式会社 和光産業</div>
+      </div>
+      <div class="col">
+        <div class="label">設立</div>
+        <div class="value">1926年（大正15年）</div>
+      </div>
+      <div class="col">
+        <div class="label">代表者</div>
+        <div class="value">和光 健一 <small>代表取締役</small></div>
+      </div>
+      <div class="col">
+        <div class="label">主要業務</div>
+        <div class="value">和素材製品の開発・製造・販売 <small>（陶器・木工・和紙）</small></div>
+      </div>
+      <div class="col">
+        <div class="label">資本金</div>
+        <div class="value">5,000万円</div>
+      </div>
+      <div class="col">
+        <div class="label">従業員数</div>
+        <div class="value">85名 <small>（職人・デザイナー含む）</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 販売方式 / セールスチャネル ===== -->
+  <div class="flex-sales">
+    <div class="sales-col">
+      <h3>📦 販売方式</h3>
+      <ul>
+        <li><strong>直営店舗</strong> — 東京・京都・金沢にショールーム</li>
+        <li><strong>オンラインストア</strong> — 公式ECサイトで全国発送</li>
+        <li><strong>百貨店・選定店</strong> — 日本橋・銀座など高級店舗に卸売</li>
+        <li><strong>海外輸出</strong> — アジア・欧州向けにB2B展開</li>
+      </ul>
+      <div class="sales-highlight">
+        <strong>▶ コミットメント</strong> 「ものづくりから販売まで、一貫した品質とおもてなし」
+      </div>
+    </div>
+
+    <div class="sales-col">
+      <h3>🤝 販売・サポート体制</h3>
+      <ul>
+        <li><strong>カスタマーサポート</strong> — 専門スタッフによるアフターケア</li>
+        <li><strong>職人直送サービス</strong> — オーダーメイド・修理対応</li>
+        <li><strong>法人向け</strong> — 業務用・ギフト・インテリアコーディネート</li>
+        <li><strong>イベント販売</strong> — 展示会・百貨店フェアで実物を体感</li>
+      </ul>
+      <div class="sales-highlight" style="border-left-color: #8f877b;">
+        <strong>▶ お客様の声</strong> 「和光の品は、使うほどに味わいが増します。」
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 簡易な企業説明（ミッション） ===== -->
+  <div style="background: #f2eee8; border-radius: 40px; padding: 28px 32px; margin: 16px 0 20px; border-left: 8px solid #b3a89a;">
+    <p style="font-size: 1.1rem; font-weight: 300; color: #31302b; letter-spacing: 0.06em;">
+      「和光産業は、<strong>日本の伝統工芸とモダンデザイン</strong>を融合し、<br>
+      世界中の方に『和の暮らし』の豊かさを届けることを使命としています。」
+    </p>
+  </div>
+
+  <!-- ===== フッター ===== -->
+  <footer class="footer">
+    <div>
+      © 2026 株式会社 和光産業 ｜ 本社：京都市中京区
+      <span style="margin-left: 20px; letter-spacing: 0.08em;">— 和のこころ、未来へ —</span>
+    </div>
+    <div>
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">会社概要</a>
+      <a href="#">採用情報</a>
+    </div>
+  </footer>
+</div>
+<!-- end container -->
+
+</body>
+</html>
